@@ -7,7 +7,7 @@ import {
   FETCH_MESSAGE
 } from './types';
 
-const ROOT_URL = 'http://localhost:3090';
+export const ROOT_URL = 'http://localhost:8081/api';
 
 const usersListURI = ROOT_URL+'/users';
 const userDetailsBaseURI = ROOT_URL+'/user';

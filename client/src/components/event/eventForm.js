@@ -7,6 +7,7 @@ import TextBox from './textbox';
 import moment from 'moment';
 import DateTimeField from 'react-bootstrap-datetimepicker';
 import axios from 'axios';
+import {ROOT_URL} from '../../actions/index';
 
 class EventForm extends Component {
 
@@ -49,7 +50,7 @@ class EventForm extends Component {
         let imageFormData = new FormData();
 
         imageFormData.append('data', JSON.stringify(req_data));
-        let URL = 'http://localhost:3090/events';
+        let URL = ROOT_URL+'/events';
 
         const config = {
             headers: { 'Content-Type': 'application/json' },

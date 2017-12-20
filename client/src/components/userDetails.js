@@ -3,6 +3,8 @@ import { viewUser,updateUser } from '../actions/'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Menu from '../components/menu';
+import {ROOT_URL} from '../actions/index';
+
 class UserDetails extends React.Component{
 
     static propTypes = {
@@ -97,7 +99,7 @@ class UserDetails extends React.Component{
 
             var xhr = new XMLHttpRequest();
 
-            xhr.open("POST", 'http://localhost:3090/user/'+this.state.userData.u_id, true);
+            xhr.open("POST", ROOT_URL+'/user/'+this.state.userData.u_id, true);
             xhr.onload = function () {
                 if (this.status == 200) {
                     resolve(this.response);

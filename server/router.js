@@ -17,22 +17,22 @@ const {
 } = require('./controllers/sabha_controller');
 
 module.exports = function(app) {
-    app.get('/', requireAuth, function(req, res) {
+    app.get('/api/', requireAuth, function(req, res) {
         res.send({ message: 'Super secret code is ABC123' });
     });
-    app.post('/signin', requireSignin, Authentication.signin);
-    app.post('/signup', Authentication.signup);
-    app.get('/users', users);
-    app.get('/user/:family_id/:user_id', view_user);
-    app.post('/user/:user_id', saveUser);
-    app.get('/events', events);
-    app.post('/events', saveEvent);
+    app.post('/api/signin', requireSignin, Authentication.signin);
+    app.post('/api/signup', Authentication.signup);
+    app.get('/api/users', users);
+    app.get('/api/user/:family_id/:user_id', view_user);
+    app.post('/api/user/:user_id', saveUser);
+    app.get('/api/events', events);
+    app.post('/api/events', saveEvent);
 
-    app.get('/events/:event_id/sabha/:sabha_id/attendance', sabhaUsers);
-    app.post('/events/:event_id/attendance', saveEventAttendance);
+    app.get('/api/events/:event_id/sabha/:sabha_id/attendance', sabhaUsers);
+    app.post('/api/events/:event_id/attendance', saveEventAttendance);
 
-    app.get('/sabhas', sabhas); 
+    app.get('/api/sabhas', sabhas);
 
-    app.post('/addevent', (req, res)=>{console.log('req', req);res.send({success:true})});
+    app.post('/api/addevent', (req, res)=>{console.log('req', req);res.send({success:true})});
 }
 
