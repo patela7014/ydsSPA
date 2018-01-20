@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 class Menu extends React.Component{
 
     render(){
-        if(!this.props.isAuthenticated){
-            return (
-                <div></div>
-            )
-        }
+        // if(!this.props.isAuthenticated){
+        //     return (
+        //         <div></div>
+        //     )
+        // }
         return(
-            <div className="sidebar-menu">
+            <div className="sidebar-menu" style={{display: this.props.isAuthenticated ? '' : 'none' }}>
 
                 <div className="sidebar-menu-inner">
 
