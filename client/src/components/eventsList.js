@@ -4,6 +4,7 @@ import { fetchUsers } from '../actions/'
 import UsersList from '../components/usersList';
 import EventSideBar from '../components/event/sidebar';
 import List from '../components/event/list';
+import {Link} from 'react-router-dom';
 
 class EventsList extends Component {
 
@@ -37,11 +38,10 @@ class EventsList extends Component {
             <div className="main-content">
                 <div className="mail-env">
                     <div className="mail-sidebar-row visible-xs">
-                    <a href="#" className="btn btn-success btn-icon btn-block">
-                        Create Event
-                        <i className="entypo-pencil"></i>
-                    </a>
-                </div>
+                        <Link className="btn btn-success btn-icon btn-block" to={"/events/add"}>
+                            Create Event<i className="entypo-pencil"></i>
+                        </Link>
+                    </div>
                     <List {...this.state}/>
                     <EventSideBar {...this.state} updateSelectedOption={this.updateSelectedOption} />
                 </div>
