@@ -52,22 +52,28 @@ class List extends Component{
         this.setState({ showModal: true });
     }
 
+    convertDateForIos(date) {
+        var arr = date.split(/[- :]/);
+        date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
+        return date;
+    }
+
     filterEvents(){
         let all_events = this.state.events;
-        let currentDate, filtered;
+        let currentDate, filtered, date;
 
         switch (this.props.selectedOption){
             case "up_coming":
                 currentDate = new Date();
                 filtered = all_events.filter((event)=>
-                    +currentDate < +new Date(event.event_date)
+                    currentDate < this.convertDateForIos(event.event_date)
                 );
 
                 break;
             case "completed":
                 currentDate = new Date();
                 filtered = all_events.filter((event)=>
-                    +currentDate >= +new Date(event.event_date)
+                    currentDate >= this.convertDateForIos(event.event_date)
                 );
                 break;
             case "all":

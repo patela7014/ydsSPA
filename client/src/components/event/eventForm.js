@@ -24,11 +24,16 @@ class EventForm extends Component {
         reader.readAsDataURL(file)
     }
 
-    constructor (props) {
+    static contextTypes = {
+        router: React.PropTypes.object
+    }
+
+    constructor (props, context) {
         super(props)
         this.state = {
             startDate: moment().format("YYYY-MM-DD HH:mm"),
-            currentState :{}
+            currentState :{},
+            context
         };
         this.handleChange = this.handleChange.bind(this)
     }
@@ -47,6 +52,7 @@ class EventForm extends Component {
 
     callServer(req_data) {
 
+        let {context} = this.state;
         let imageFormData = new FormData();
 
         imageFormData.append('data', JSON.stringify(req_data));
@@ -62,6 +68,7 @@ class EventForm extends Component {
         xhr.onload = function () {
             if (this.status == 200) {
                 console.log(this.response);
+                context.router.history.push('/events')
             } else {
                 console.log(this.statusText);
             }
