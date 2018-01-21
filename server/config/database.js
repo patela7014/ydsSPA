@@ -1,13 +1,10 @@
-// This is an example database config file. Replace these presets with your database info and add this file to your .gitignore.
 module.exports = {
-  'connection': {
-    'host': 'localhost',
-    'user': 'root',
-    'port': "3307",
-    'password': '',
+    'connection': {
+        'host': '165.227.71.191',
+        'user': 'ankur',
+        'port': "3306",
+        'password': 'mp3VCDdvd..',
+        'database': 'yds'
+    },
     'database': 'yds'
-  },
-  'database': 'yds'
 };
-
-
