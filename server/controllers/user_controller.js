@@ -127,7 +127,7 @@ const save_user_data = function(fields, files, parent_callback){
             update_user_address: function(callback) {
                 let sql_query = "UPDATE address set ?,?,?,?,?  WHERE ?";
 
-                db.query(sql_query, [{street:input.street},{apt:input.apt},{city:input.city},{state:input.state},{zip:input.zip},{id:user_data.id}],function (err,result) {
+                db.query(sql_query, [{street:input.street},{apt:input.apt},{city:input.city},{state:input.state},{zip:input.zip},{user_id:user_data.id}],function (err,result) {
                     if (err)
                         return callback(err);
 
